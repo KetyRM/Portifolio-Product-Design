@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portifolio Ketlyn Rodrigues</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#C84B31',
+                            orange: '#E07A5F',
+                            lightOrange: '#F2CC8F',
+                            beige: '#F4F1DE',
+                            softBeige: '#FAFAF5',
+                            dark: '#2B2D42',
+                            espresso: '#1D1E2C',
+                            muted: '#6C757D'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    borderRadius: {
+                        '4xl': '2.5rem',
+                        '5xl': '3.5rem'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F4F1DE;
+            color: #1D1E2C;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Organic Blob background shapes */
+        .blob {
+            position: absolute;
+            filter: blur(70px);
+            opacity: 0.35;
+            z-index: -1;
+            border-radius: 50%;
+            transition: all 8s ease-in-out;
+        }
+
+        .blob-1 {
+            top: -5%;
+            right: -5%;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, #C84B31 0%, #E07A5F 100%);
+            animation: floatSlow 12s infinite alternate ease-in-out;
+        }
+
+        .blob-2 {
+            top: 40%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #E07A5F 0%, #F2CC8F 100%);
+            animation: floatSlow 16s infinite alternate-reverse ease-in-out;
+        }
+
+        .blob-3 {
+            bottom: 5%;
+            right: -8%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #C84B31 0%, #F2CC8F 100%);
+            animation: floatSlow 14s infinite alternate ease-in-out;
+        }
+
+        @keyframes floatSlow {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(30px, 40px) scale(1.08); }
+            100% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(224, 122, 95, 0.15);
+        }
+
+        .glass-nav {
+            background: rgba(244, 241, 222, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4F1DE;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E07A5F;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C84B31;
+        }
+    </style>
+</head>
+<body class="relative selection:bg-brand-orange selection:text-white">
+
+    <!-- Organic Background Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-40 glass-nav border-b border-brand-orange/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+            <!-- Logo with Organic Circle -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-brand-red text-brand-beige flex items-center justify-center font-serif text-xl font-bold shadow-md group-hover:scale-105 transition-transform duration-300">
+                    K
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold tracking-tight text-brand-espresso text-base group-hover:text-brand-red transition-colors">Ketlyn Rodrigues</span>
+                    <span class="text-xs font-medium text-brand-orange tracking-wider uppercase">Product Designer Jr</span>
+                </div>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-dark">
+                <a href="#sobre" class="hover:text-brand-red transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-brand-red hover:after:w-full after:transition-all">Sobre mim</a>
+                <a href="#cases" class="hover:text-brand-red transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-brand-red hover:after:w-full after:transition-all">Case Studies</a>
+                <a href="#diferencial" class="hover:text-brand-red transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-brand-red hover:after:w-full after:transition-all">Habilidades</a>
+                <a href="#contato" class="hover:text-brand-red transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-brand-red hover:after:w-full after:transition-all">Contato</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="#cases" class="px-6 py-2.5 rounded-full bg-brand-red text-white text-sm font-semibold hover:bg-brand-espresso transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                    Ver Cases
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-brand-dark text-2xl focus:outline-none" aria-label="Abrir Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-beige border-b border-brand-orange/20 px-6 py-6 transition-all">
+            <div class="flex flex-col gap-4 text-brand-dark font-medium">
+                <a href="#sobre" class="mobile-link hover:text-brand-red py-2">Sobre mim</a>
+                <a href="#cases" class="mobile-link hover:text-brand-red py-2">Case Studies</a>
+                <a href="#diferencial" class="mobile-link hover:text-brand-red py-2">Habilidades</a>
+                <a href="#contato" class="mobile-link hover:text-brand-red py-2">Contato</a>
+                <a href="#cases" class="mobile-link w-full text-center py-3 rounded-full bg-brand-red text-white font-semibold mt-2">Ver Cases</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-32 pb-20 flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid md:grid-cols-12 gap-12 items-center">
+            
+            <div class="md:col-span-7 flex flex-col gap-6">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 border border-brand-orange/20 backdrop-blur-sm w-fit text-xs font-semibold text-brand-dark shadow-sm">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Disponível para Oportunidades Junior</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-espresso leading-tight">
+                    Unindo um <span class="font-serif italic text-brand-red font-normal">olhar analítico</span> ao design para criar soluções que fazem sentido de ponta a ponta.
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-lg md:text-xl text-brand-dark/80 font-normal leading-relaxed max-w-2xl">
+                    Do design gráfico ao front-end: construo produtos digitais que unem precisão visual, dados e viabilidade técnica, para impactar diversos públicos.
+                </p>
+
+                <!-- Key Skills Pill Tags -->
+                <div class="flex flex-wrap gap-2 pt-2">
+                    <span class="px-3.5 py-1.5 rounded-full bg-brand-orange/15 text-brand-espresso text-xs font-semibold border border-brand-orange/20">Design Thinking</span>
+                    <span class="px-3.5 py-1.5 rounded-full bg-brand-orange/15 text-brand-espresso text-xs font-semibold border border-brand-orange/20">Design Systems</span>
+                    <span class="px-3.5 py-1.5 rounded-full bg-brand-orange/15 text-brand-espresso text-xs font-semibold border border-brand-orange/20">UX Research & Wireframing</span>
+                    <span class="px-3.5 py-1.5 rounded-full bg-brand-orange/15 text-brand-espresso text-xs font-semibold border border-brand-orange/20">Prototipagem Interativa</span>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap items-center gap-4 pt-4">
+                    <a href="#cases" class="px-8 py-3.5 rounded-full bg-brand-red text-white font-semibold hover:bg-brand-espresso transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 group">
+                        Explorar Case Studies
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#sobre" class="px-8 py-3.5 rounded-full bg-white/70 text-brand-dark font-semibold border border-brand-orange/30 hover:bg-white hover:border-brand-orange transition-all duration-300">
+                        Conhecer minha trajetória
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile & Organic Visual Element -->
+            <div class="md:col-span-5 flex justify-center relative">
+                <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
+                    <!-- Decorative Circular Rings -->
+                    <div class="absolute inset-0 rounded-full border-2 border-dashed border-brand-orange/40 animate-spin" style="animation-duration: 40s;"></div>
+                    <div class="absolute -inset-4 rounded-full border border-brand-red/20"></div>
+                    
+                    <!-- Main Profile Container with Rounded Blob Feel -->
+                    <div class="w-full h-full rounded-[40%_60%_70%_30%/50%_60%_40%_50%] bg-gradient-to-tr from-brand-red to-brand-orange p-2 shadow-2xl overflow-hidden transition-all duration-700 hover:rounded-full">
+                        <img src="imagens/foto-ketlyn.jpg.jpg" 
+                             alt="Ketlyn Rodrigues - Product Designer" 
+                             class="w-full h-full object-cover rounded-[38%_58%_68%_28%/48%_58%_38%_48%] hover:scale-105 transition-all duration-500 grayscale hover:grayscale-0">
+                    </div>
+
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-4 -left-4 glass-card p-4 rounded-2xl shadow-xl flex items-center gap-3 max-w-[210px]">
+                        <div class="w-10 h-10 rounded-full bg-brand-orange/20 text-brand-red flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-lightbulb text-lg"></i>
+                        </div>
+                        <p class="text-xs font-semibold text-brand-espresso leading-snug">
+                            "Criatividade também é resolver problemas."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Recruiter Quick Summary Banner -->
+    <section class="py-12 bg-brand-dark text-brand-beige relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="flex flex-col items-center">
+                <span class="text-3xl lg:text-4xl font-serif font-bold text-brand-orange mb-1">1+ Ano</span>
+                <span class="text-xs uppercase tracking-widest text-brand-beige/70 font-medium">Base Gráfica & Visual</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-3xl lg:text-4xl font-serif font-bold text-brand-orange mb-1">100%</span>
+                <span class="text-xs uppercase tracking-widest text-brand-beige/70 font-medium">Foco em UX/UI & Product</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-3xl lg:text-4xl font-serif font-bold text-brand-orange mb-1">Figma</span>
+                <span class="text-xs uppercase tracking-widest text-brand-beige/70 font-medium">Avançado & Components</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-3xl lg:text-4xl font-serif font-bold text-brand-orange mb-1">Design System</span>
+                <span class="text-xs uppercase tracking-widest text-brand-beige/70 font-medium">Escala & Consistência</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="cases" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+                <div>
+                    <span class="text-xs font-bold text-brand-red uppercase tracking-widest block mb-2">Trabalhos Selecionados</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-brand-espresso font-serif">
+                        Case Desenvolvidos
+                    </h2>
+                </div>
+                <p class="text-sm text-brand-dark/70 max-w-md">
+                    Projetos focados em resolver problemas reais dos usuários através de pesquisa, iteração contínua e prototipagem de alta fidelidade.
+                </p>
+            </div>
+
+            <!-- Case Cards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Case Card 1 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg border border-brand-orange/15 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col group">
+                    <div class="h-56 overflow-hidden relative bg-brand-orange/20">
+                        <img src="imagens/librali-foto.png" 
+                             alt="LibraLi App" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-brand-espresso/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">
+                            Web Página • FinTech
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-2.5 py-0.5 rounded-full bg-brand-red/10 text-brand-red text-xs font-semibold">UX Research</span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-semibold">Acessibilidade</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-brand-espresso mb-2 group-hover:text-brand-red transition-colors">
+                                LibraLi — Plataforma para interpretes de libras
+                            </h3>
+                            <p class="text-sm text-brand-dark/80 line-clamp-3 mb-4">
+                                 Marketplace modelo B2B/B2C, onde liderei a estratégia de produto e a interface de usuário (UI/UX).
+                            </p>
+                        </div>
+                        <button onclick="openModal('case1')" class="w-full py-3 rounded-2xl bg-brand-beige border border-brand-orange/30 text-brand-espresso font-semibold text-sm hover:bg-brand-red hover:text-white hover:border-brand-red transition-all duration-300 flex items-center justify-center gap-2">
+                            <span>Ver Case Completo</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Case Card 2 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg border border-brand-orange/15 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col group">
+                    <div class="h-56 overflow-hidden relative bg-brand-red/20">
+                        <img src="imagens/talacito-foto.png" 
+                             alt="Corre da Quebrada" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-brand-espresso/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">
+                            Web Design • Empreendedorismo
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-2.5 py-0.5 rounded-full bg-brand-red/10 text-brand-red text-xs font-semibold">User Journey</span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-semibold">Wireframing</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-brand-espresso mb-2 group-hover:text-brand-red transition-colors">
+                                Talácito Gruop — Impusionar microempreendedores
+                            </h3>
+                            <p class="text-sm text-brand-dark/80 line-clamp-3 mb-4">
+                               Web página com foco em UX/UI Design para impulsionar microempreendedores e fortalecer sua presença digital.
+                            </p>
+                        </div>
+                        <button onclick="openModal('case2')" class="w-full py-3 rounded-2xl bg-brand-beige border border-brand-orange/30 text-brand-espresso font-semibold text-sm hover:bg-brand-red hover:text-white hover:border-brand-red transition-all duration-300 flex items-center justify-center gap-2">
+                            <span>Ver Case Completo</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Case Card 3 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-lg border border-brand-orange/15 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col group">
+                    <div class="h-56 overflow-hidden relative bg-brand-lightOrange/20">
+                        <img src="imagens/aprovaia-foto.png" 
+                             alt="Design System Refactoring" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-brand-espresso/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">
+                             Web Página • EdTech
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-2.5 py-0.5 rounded-full bg-brand-red/10 text-brand-red text-xs font-semibold">Design System</span>
+
+                                <span class="px-2.5 py-0.5 rounded-full bg-brand-orange/10 text-brand-orange text-xs font-semibold"> UX/UI Process <span>
+                            </div>
+                            <h3 class="text-xl font-bold text-brand-espresso mb-2 group-hover:text-brand-red transition-colors">
+                                Aprova IA — Estudos com IA
+                            </h3>
+                            <p class="text-sm text-brand-dark/80 line-clamp-3 mb-4">
+                                Plataforma digital com foco em vestibulares com auxílio de IA para estudos e correção de redação.
+                            </p>
+                        </div>
+                        <button onclick="openModal('case3')" class="w-full py-3 rounded-2xl bg-brand-beige border border-brand-orange/30 text-brand-espresso font-semibold text-sm hover:bg-brand-red hover:text-white hover:border-brand-red transition-all duration-300 flex items-center justify-center gap-2">
+                            <span>Ver Case Completo</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Hybrid Advantage / Differentials Section -->
+    <section id="diferencial" class="py-20 relative bg-white/40 border-y border-brand-orange/10">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-brand-red uppercase tracking-widest block mb-2">Diferencial Estratégico</span>
+                <h2 class="text-3xl font-bold font-serif text-brand-espresso">
+                    Por que me contratar como Junior?
+                </h2>
+                <p class="text-sm text-brand-dark/70 mt-3">
+                    A interseção entre rigor estético do Design Gráfico e rigor metodológico do Product Design.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover:border-brand-red/40 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-red/10 text-brand-red flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-red group-hover:text-white transition-all">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-espresso mb-3">Refinamento Visual Superior</h3>
+                    <p class="text-sm text-brand-dark/80 leading-relaxed">
+                        Domínio avançado de tipografia, hierarquia visual, teoria das cores e grid. Entregas de UI polidas e prontas para desenvolvimento sem ruídos estéticos.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover:border-brand-orange/40 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-orange/10 text-brand-orange flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-orange group-hover:text-white transition-all">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-espresso mb-3">Pensamento Centrado no Usuário</h3>
+                    <p class="text-sm text-brand-dark/80 leading-relaxed">
+                        Entendimento claro de fluxos de navegação, entrevistas com usuários, testes de usabilidade e arquitetura de informação aplicados desde a primeira etapa.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-3xl relative overflow-hidden group hover:border-brand-red/40 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-lightOrange/30 text-brand-espresso flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-espresso group-hover:text-white transition-all">
+                        <i class="fa-solid fa-cubes"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-brand-espresso mb-3">Visão Sistêmica & Handoff</h3>
+                    <p class="text-sm text-brand-dark/80 leading-relaxed">
+                        Organização impecável no Figma com variantes, auto-layout e tokens. Facilidade para conversar com desenvolvedores devido à noção de HTML/CSS.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Experience Section -->
+    <section id="sobre" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-12 gap-12 items-center">
+            
+            <div class="md:col-span-5">
+                <div class="relative">
+                    <!-- Organic Decorative Container -->
+                    <div class="w-full h-96 rounded-3xl bg-brand-orange/10 overflow-hidden border border-brand-orange/20 p-4">
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800" 
+                             alt="Processo de Design no Figma" 
+                             class="w-full h-full object-cover rounded-2xl shadow-inner">
+                    </div>
+                    <!-- Circular Overlay Badge -->
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-full bg-brand-red text-white p-4 flex flex-col items-center justify-center text-center shadow-xl">
+                        <span class="text-xs font-bold">Transição Consistente</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-7 flex flex-col gap-6">
+                <span class="text-xs font-bold text-brand-red uppercase tracking-widest">Sobre Mim</span>
+                <h2 class="text-3xl font-bold font-serif text-brand-espresso">
+                    Criando pontes entre a intenção visual e a facilidade de uso.
+                </h2>
+                <p class="text-sm md:text-base text-brand-dark/80 leading-relaxed">
+                    Minha jornada começou na formação técnica em Design Gráfico, onde desenvolvi uma base sólida em branding, identidade visual e domínio de ferramentas como Figma, Illustrator e Photoshop. Percebendo que queria ir além da estética estática, ampliei minha visão técnica cursando programação Full Stack.
+                </p>
+
+                <p class="text-sm md:text-base text-brand-dark/80 leading-relaxed">
+                    Essa vivência me deu uma compreensão profunda de front-end (HTML, CSS e React) e da viabilidade de código. Hoje, como Product Designer em início de carreira, uno o rigor visual à lógica de desenvolvimento — aplicando conceitos avançados de UX/UI, construção de Design Systems e prototipagem de alta resolução para criar experiências digitais funcionais, elegantes e centradas no usuário.
+                </p>
+
+                 <p class="text-sm md:text-base text-brand-dark/80 leading-relaxed">
+                    Apliquei minha bagagem em projetos e hackathons — inclusive em ambientes corporativos de multinacionais — com foco em experiência do cliente (CX) e em transformações culturais voltadas a um design funcional e verdadeiramente intuitivo. Através dessa trajetória multidisciplinar, percebi que meu maior diferencial está na união entre uma sólida base analítica, a resolução estruturada de problemas e a entrega de soluções visuais de alto impacto.
+                </p>
+
+
+                <!-- Tool Stack Icons -->
+                <div class="pt-4 border-t border-brand-orange/20">
+                    <span class="text-xs font-semibold text-brand-dark/60 uppercase tracking-wider block mb-3">Ferramentas & Metodologias</span>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1.5 rounded-xl bg-white text-brand-espresso text-xs font-medium border border-brand-orange/20 shadow-sm flex items-center gap-2"><i class="fa-brands fa-figma text-brand-red"></i>Figma</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-white text-brand-espresso text-xs font-medium border border-brand-orange/20 shadow-sm flex items-center gap-2"><i class="fa-solid fa-database text-brand-red"></i>MySQL</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-white text-brand-espresso text-xs font-medium border border-brand-orange/20 shadow-sm flex items-center gap-2"><i class="fa-brands fa-react text-brand-red"></i>React</span>
+                         <span class="px-3 py-1.5 rounded-xl bg-white text-brand-espresso text-xs font-medium border border-brand-orange/20 shadow-sm flex items-center gap-2"><i class="fa-brands fa-java text-brand-red"></i>JavaScript</span>
+
+
+                        <span class="px-3 py-1.5 rounded-xl bg-white text-brand-espresso text-xs font-medium border border-brand-orange/20 shadow-sm flex items-center gap-2"><i class="fa-solid fa-sitemap text-brand-orange"></i> Miro / Jira</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-white text-brand-espresso text-xs font-medium border border-brand-orange/20 shadow-sm flex items-center gap-2"><i class="fa-solid fa-code text-brand-red"></i> HTML & CSS</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-white text-brand-espresso text-xs font-medium border border-brand-orange/20 shadow-sm flex items-center gap-2"><i class="fa-solid fa-[#00055D] fa-flask"></i> Maze (Usability Testing)</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-white text-brand-espresso text-xs font-medium border border-brand-orange/20 shadow-sm flex items-center gap-2"><i class="fa-solid fa-palette text-brand-orange"></i> Adobe CC</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer / CTA Section -->
+    <footer id="contato" class="py-20 bg-brand-espresso text-brand-beige relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            
+            <div class="grid md:grid-cols-12 gap-12 items-center mb-16">
+                <div class="md:col-span-7">
+                    <span class="text-xs font-bold text-brand-orange uppercase tracking-widest block mb-2">Vamos conversar?</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold font-serif mb-4 leading-tight">
+                        Pronto para contribuir no seu time de produto.
+                    </h2>
+                    <p class="text-sm text-brand-beige/70 max-w-lg">
+                        Estou disponível para posições de Product Designer Junior seja em formato Remoto ou Híbrido.
+                    </p>
+                </div>
+
+                <div class="md:col-span-5 flex flex-col sm:flex-row gap-4 justify-start md:justify-end">
+                    <a href="mailto:ketlyn.jk07@gmail.com" class="px-8 py-4 rounded-full bg-brand-red text-white font-semibold hover:bg-brand-orange transition-all duration-300 shadow-lg flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Enviar E-mail</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ketlynrm/" target="_blank" rel="noopener" class="px-8 py-4 rounded-full bg-white/10 text-white font-semibold hover:bg-white/20 transition-all duration-300 border border-white/10 flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom Line -->
+            <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-beige/50 gap-4">
+                <p>© 2026 Ketlyn Rodrigues — Product Designer Portfolio.</p>
+                <div class="flex items-center gap-6">
+                    <a href="https://figma.com" target="_blank" class="hover:text-brand-orange transition-colors">Figma Community</a>
+                    <a href="https://github.com" target="_blank" class="hover:text-brand-orange transition-colors">GitHub</a>
+                    <a href="https://behance.net" target="_blank" class="hover:text-brand-orange transition-colors">Behance</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- CASE STUDY MODAL OVERLAY -->
+    <div id="case-modal" class="fixed inset-0 z-50 hidden bg-brand-espresso/80 backdrop-blur-md flex items-center justify-center p-4 md:p-8">
+        <div class="bg-brand-beige w-full max-w-4xl max-h-[90vh] rounded-3xl overflow-y-auto shadow-2xl relative border border-brand-orange/30">
+            
+            <!-- Modal Close Button -->
+            <button onclick="closeModal()" class="sticky top-6 right-6 float-right w-10 h-10 rounded-full bg-brand-espresso text-white flex items-center justify-center hover:bg-brand-red transition-colors shadow-lg z-20">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Dynamic Content Container -->
+            <div id="modal-content" class="p-6 md:p-12">
+                <!-- Content will be injected dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Mobile Menu Toggle Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Case Study Details Data
+        const caseData = {
+            case1: {
+                title: "LibraLi — Contratação de intérpretes com um clique",
+                category: "Web Platform • Acessibilidade",
+                role: "UX/UI Design / Product Owner (Em colaboração)",
+                duration: "5 semanas (2025)",
+                problem: "ntérpretes de Libras não tinham como divulgar seu trabalho de forma acessível, e empresas e pessoas tinham dificuldade na contratação dos mesmos, seja em demandas pontuais ou contratos longos.",
+                solution: "Desenvolvimento de uma página web pensada na experiência do cliente e do prestador de serviços para a contratação facilitada de intérpretes.",
+                methodology: [
+                    "Desk Research & Benchmarking com 4 páginas concorrentes",
+                    "+50 Entrevistas qualitativas com pessoas surdas e interpretes",
+                    "Wireframes de alta fidelidade no Figma",
+                    "Prototipagem interativa & Testes de usabilidade (Maze)"
+                ],
+                results: "92% de taxa de conclusão nos testes de usabilidade e taxa de aceitação de 80% para uso da plataforma.",
+                image: "imagens/librali-foto.png",
+                figmaLink: "https://www.figma.com/design/8l20K65g6p3fsLPCUmfcNU/LibraLi?node-id=0-1&t=lXeyyhL8EXSeUang-1", 
+                appLink: "https://librali-front-end-pi.vercel.app/"
+            },
+            case2: {
+                title: "Talácito Group — Empreendedorismo",
+                category: "Web App • FinTech Social",
+                role: "UI/UX Designer",
+                duration: "6 semanas (2025)",
+                problem: "Microempreendedores da região tem dificuldade de divulgar seus produtos em formato de marktplace, o que fazem perder vendas e possivel clientes.",
+                solution: "Uma interface web conversacional e transparente que facilita a comunição do cliente e vendedor, focado em comunicação via whatsapp.",
+                methodology: [
+                    "Criação de Personas e Mapa de Empatia",
+                    "Fluxo de Usuário (User Flow) otimizado em 3 etapas",
+                    "Design visual focado em legibilidade e botões de toque amplos",
+                    "Design System básico (Typography + Color Tokens)"
+                ],
+                results: "Retenção de cliene melhorada em  78%, divulgação dos produtos com taxa de 55% a mais que vendas focadas somente em instagram.",
+                image: "imagens/talacito-foto.png",
+                figmaLink: "https://www.figma.com/design/v6APPrsRlmPSeuiJ98ov8c/Sem-t%C3%ADtulo?node-id=0-1&t=Vx0BNmTEuIH0oH4W-1,",
+                appLink: "https://talacitogroup.vercel.app/"
+            },
+            case3: {
+                title: "Aura — Multi-brand Design System",
+                category: "Design System • Foundations",
+                role: "Visual & UI Designer",
+                duration: "3 semanas (2026)",
+                problem: "Inconsistência visual em 3 produtos digitais de uma mesma marca, gerando retrabalho no handoff para desenvolvedores.",
+                solution: "Estruturação completa de Design Tokens (Cores, Espaçamento, Tipografia) e biblioteca de componentes reutilizáveis no Figma com Auto-Layout 5.0.",
+                methodology: [
+                    "Auditoria de UI de 45 telas existentes",
+                    "Definição de escala tipográfica responsiva",
+                    "Criação de componentes acessíveis com variantes no Figma",
+                    "Documentação detalhada de uso para Devs"
+                ],
+                results: "Agilidade de layout aumentada em 3x na criação de novas telas demonstrativas.",
+                image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=1200",
+                figmaLink: "https://www.figma.com/design/fng7zSfZHurTDG5wbLfK2I/AprovaIA?node-id=167-2&t=KADIqewKAwclt1MR-1",
+                appLink: "https://projec-aprova-ia.vercel.app/"
+            }
+        };
+
+        // Modal Functionalities
+        function openModal(caseKey) {
+            const item = caseData[caseKey];
+            if (!item) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="flex flex-col gap-6">
+                    <div>
+                        <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">${item.category}</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold font-serif text-brand-espresso mt-1">${item.title}</h2>
+                        <div class="flex flex-wrap gap-4 text-xs text-brand-dark/70 mt-2">
+                            <span><strong>Papel:</strong> ${item.role}</span>
+                            <span>•</span>
+                            <span><strong>Duração:</strong> ${item.duration}</span>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-64 md:h-80 rounded-2xl overflow-hidden my-2">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white/60 p-5 rounded-2xl border border-brand-orange/10">
+                            <h4 class="font-bold text-brand-red text-sm uppercase mb-2"><i class="fa-solid fa-circle-exclamation mr-2"></i>O Problema</h4>
+                            <p class="text-sm text-brand-dark/80">${item.problem}</p>
+                        </div>
+                        <div class="bg-white/60 p-5 rounded-2xl border border-brand-orange/10">
+                            <h4 class="font-bold text-emerald-700 text-sm uppercase mb-2"><i class="fa-solid fa-circle-check mr-2"></i>A Solução</h4>
+                            <p class="text-sm text-brand-dark/80">${item.solution}</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-brand-espresso text-base mb-3">Metodologia & Etapas:</h4>
+                        <ul class="grid sm:grid-cols-2 gap-2">
+                            ${item.methodology.map(m => `<li class="text-sm text-brand-dark/80 bg-white/40 p-3 rounded-xl border border-brand-orange/10 flex items-center gap-2"><i class="fa-solid fa-angle-right text-brand-orange text-xs"></i> ${m}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-brand-red/10 border border-brand-red/20">
+                        <h4 class="font-bold text-brand-red text-xs uppercase tracking-wider mb-1">Impacto & Aprendizado</h4>
+                        <p class="text-sm font-medium text-brand-espresso">${item.results}</p>
+                    </div>
+
+                    <!-- Botões de Acesso (Figma e App / Site) -->
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-brand-orange/20">
+                        <div class="flex flex-wrap gap-3">
+                            ${item.figmaLink ? `
+                                <a href="${item.figmaLink}" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-white border border-brand-orange/30 text-brand-espresso text-sm font-semibold hover:bg-brand-orange/10 transition-colors flex items-center gap-2 shadow-sm">
+                                    <i class="fa-brands fa-figma text-brand-orange"></i> Ver no Figma
+                                </a>
+                            ` : ''}
+                            
+                            ${item.appLink ? `
+                                <a href="${item.appLink}" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-brand-orange text-white text-sm font-semibold hover:bg-brand-orange/90 transition-colors flex items-center gap-2 shadow-sm">
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Acessar Aplicação
+                                </a>
+                            ` : ''}
+                        </div>
+
+                        <button onclick="closeModal()" class="px-6 py-2.5 rounded-full bg-brand-espresso text-white text-sm font-semibold hover:bg-brand-red transition-colors ml-auto">
+                            Fechar Detalhes
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            const modal = document.getElementById('case-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('case-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on backdrop click
+        document.getElementById('case-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'case-modal') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
