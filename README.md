@@ -37,8 +37,8 @@ Os projetos apresentados foram desenvolvidos ao longo da minha trajetória acad�
 
 Estou sempre aberta a trocar ideias sobre Product Design, UI/UX, tecnologia e oportunidades na área.
 
-* **LinkedIn:** [Adicione aqui o link do seu LinkedIn]
-* **E-mail:** [Adicione aqui o seu e-mail profissional]
+* **LinkedIn:** https://www.linkedin.com/in/ketlynrm/
+* **E-mail:** ketlyn.jk07@gmail.com
 
 ---
 
